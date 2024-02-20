@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                                 JSONObject jsonObjectRequest1 = jsonArray.getJSONObject(x);
                                 String firstName = jsonObjectRequest1.getString("firstName");
                                 String maidenName = jsonObjectRequest1.getString("firstName");
-                                String lastName = jsonObjectRequest1.getString("firstName");
+                                String lastName = jsonObjectRequest1.getString("lastName");
                                 String age = jsonObjectRequest1.getString("age");
                                 String gender = jsonObjectRequest1.getString("gender");
                                 String email = jsonObjectRequest1.getString("email");
@@ -96,12 +98,75 @@ public class MainActivity extends AppCompatActivity {
                                 String weight = jsonObjectRequest1.getString("weight");
                                 String eyeColor = jsonObjectRequest1.getString("eyeColor");
 
+                                String domain = jsonObjectRequest1.getString("domain");
+                                String ip = jsonObjectRequest1.getString("ip");
+                                String macAddress = jsonObjectRequest1.getString("macAddress");
+                                String university = jsonObjectRequest1.getString("university");
+                                String ein = jsonObjectRequest1.getString("ein");
+                                String ssn = jsonObjectRequest1.getString("ssn");
+                                String userAgent = jsonObjectRequest1.getString("userAgent");
+
+
+                                //======================HAIR=======================
+                                JSONObject hairObject = jsonObjectRequest1.getJSONObject("hair");
+                                String color = hairObject.getString("color");
+                                String type = hairObject.getString("type");
+
+                                //======================address=======================
+                                JSONObject addressObject = jsonObjectRequest1.getJSONObject("address");
+                                String address = addressObject.getString("address");
+                                String city = addressObject.getString("city");
+
+                                JSONObject coordinatesObject = addressObject.getJSONObject("coordinates");
+                                String lat = coordinatesObject.getString("lat");
+                                String lng = coordinatesObject.getString("lng");
+
+                                String postalCode = addressObject.getString("postalCode");
+                                String state = addressObject.getString("state");
+
+
+                                //======================Bank=======================
+                                JSONObject bankObject = jsonObjectRequest1.getJSONObject("bank");
+                                String cardExpire = bankObject.getString("cardExpire");
+                                String cardNumber = bankObject.getString("cardNumber");
+                                String cardType = bankObject.getString("cardType");
+                                String currency = bankObject.getString("currency");
+                                String iban = bankObject.getString("iban");
+                                //=================================================
+
+                                //======================company=======================
+                                JSONObject companyObject = jsonObjectRequest1.getJSONObject("company");
+                                JSONObject companyaddreesObject = companyObject.getJSONObject("address");
+                                String CPaddress = companyaddreesObject.getString("address");
+                             //   String cpcity = companyaddreesObject.getString("city");  //not working this string
+
+
+                                JSONObject CPcoordinatesObject = companyaddreesObject.getJSONObject("coordinates");
+                               String CPlat = CPcoordinatesObject.getString("lat");
+                               String CPlng = CPcoordinatesObject.getString("lng");
+
+                               String CPpostalCode = companyaddreesObject.getString("postalCode");
+                               String CPstate = companyaddreesObject.getString("state");
+
+                                String department = companyObject.getString("department");
+                                String name = companyObject.getString("name");
+                                String title = companyObject.getString("title");
+                                //=================================================
+
+                                //======================crypto=======================
+                                JSONObject cryptoObject = jsonObjectRequest1.getJSONObject("crypto");
+                                String coin = cryptoObject.getString("coin");
+                                String wallet = cryptoObject.getString("wallet");
+                                String network = cryptoObject.getString("network");
+
+
+
 
 
                                 hashMap = new HashMap<>();
                                 hashMap.put("firstName", firstName);
                                 hashMap.put("maidenName", maidenName);
-                                hashMap.put("lastName", maidenName);
+                                hashMap.put("lastName", lastName);
                                 hashMap.put("age", age);
                                 hashMap.put("gender", gender);
                                 hashMap.put("email", email);
@@ -114,8 +179,12 @@ public class MainActivity extends AppCompatActivity {
                                 hashMap.put("height", height);
                                 hashMap.put("weight", weight);
                                 hashMap.put("eyeColor", eyeColor);
-                                arrayList.add(hashMap);
+                                //HAIR===============
+                                hashMap.put("color", color);
+                                hashMap.put("type", type);
 
+
+                                arrayList.add(hashMap);
 
 
 
@@ -202,38 +271,73 @@ public class MainActivity extends AppCompatActivity {
             String eyeColor = hashMap.get("eyeColor");
 
 
+            String color = hashMap.get("color");
+            String type = hashMap.get("type");
+
+
             tvName.setText(firstName+" "+maidenName+" "+lastName);
             tvGender.setText("Gender: "+gender);
             tvAge.setText("Age: "+age);
             Picasso.get().load(image).placeholder(R.drawable.itempic).into(tvImage);
 
 
-
-
+            //Email and call ======onclick listener===========start====
             tvEmail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
-
-                   
+                    Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                    sharingIntent.setType("text/plain");
+                    sharingIntent.setPackage("com.google.android.gm");
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+                    sharingIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+                    startActivity(sharingIntent);
                 }
             });
-
-
-
 
             tvCall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
                     Intent callingIntent = new Intent(Intent.ACTION_DIAL);
                     callingIntent.setData(Uri.parse("tel:"+phone));
                     startActivities(new Intent[]{callingIntent});
-
                 }
             });
+            //Email and call ======onclick listener===========end====
+
+
+
+            tvImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    UserFullinfo.FIRSTNAME = firstName;
+                    UserFullinfo.MAIDENNAME = maidenName;
+                    UserFullinfo.LASTNAME = lastName;
+                    UserFullinfo.USERNAME = username;
+                    UserFullinfo.PHONE = phone;
+                    UserFullinfo.EMAIL = email;
+                    UserFullinfo.AGE = age;
+                    UserFullinfo.GENDER = gender;
+                    UserFullinfo.BIRTHDATE = birthDate;
+                    UserFullinfo.HEIGHT = height;
+                    UserFullinfo.WEIGHT = weight;
+                    UserFullinfo.PASSWORD = password;
+                    UserFullinfo.EYECOLOR = eyeColor;
+                    UserFullinfo.IMAGE = image;
+                    UserFullinfo.HAIRCOLOR= color;
+                    UserFullinfo.HAIRTYPE= type;
+
+
+
+
+                    Intent myIntent = new Intent(MainActivity.this, UserFullinfo.class);
+                    startActivity(myIntent);
+                }
+            });
+
+
+
 
 
 

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UserFullinfo"
+    android:background="#CCEFFF"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bottom_shade"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/tvDimage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/itempic"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/tvDname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Md Jony signs"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/tvDusername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Username: jonysing"
+            android:gravity="center"
+            android:textSize="16dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:id="@+id/tvDnumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+947474843893"
+                android:textSize="18dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#00CC08"
+                />
+
+            <TextView
+                android:id="@+id/tvDemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="josidiu@gmail.com"
+                android:textSize="18dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#00CC08"
+
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:id="@+id/tvDage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Age: 56"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#A4000000"
+                />
+
+            <TextView
+                android:id="@+id/tvDbirthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Birth Date:12/2/2000"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#A4000000"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:id="@+id/tvDgender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gender: Male"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#A4000000"
+                />
+
+
+            <TextView
+                android:id="@+id/tvDbloodgroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Blood Group: +A"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#A4000000"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:id="@+id/tvDhight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Height: 57"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#A4000000"
+                />
+
+            <TextView
+                android:id="@+id/tvDweight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weight: 77"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#A4000000"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:id="@+id/tvDaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address: 1745 T Street Southeast, Washington"
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#A4000000"
+                />
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>
