@@ -179,11 +179,46 @@ public class MainActivity extends AppCompatActivity {
                                 hashMap.put("height", height);
                                 hashMap.put("weight", weight);
                                 hashMap.put("eyeColor", eyeColor);
+                                hashMap.put("domain", domain);
+                                hashMap.put("ip", ip);
+                                hashMap.put("macAddress", macAddress);
+                                hashMap.put("university", university);
+                                hashMap.put("ein", ein);
+                                hashMap.put("ssn", ssn);
+                                hashMap.put("userAgent", userAgent);
+
                                 //HAIR===============
                                 hashMap.put("color", color);
                                 hashMap.put("type", type);
 
+                                //======================address=======================
+                                hashMap.put("address", address);
+                                hashMap.put("city", city);
+                                hashMap.put("lat", lat);
+                                hashMap.put("lng", lng);
+                                hashMap.put("postalCode", postalCode);
+                                hashMap.put("state", state);
 
+                                //======================Bank=======================
+                                hashMap.put("cardExpire", cardExpire);
+                                hashMap.put("cardNumber", cardNumber);
+                                hashMap.put("cardType", cardType);
+                                hashMap.put("currency", currency);
+                                hashMap.put("iban", iban);
+
+                                //======================company=======================
+                                hashMap.put("CPaddress", CPaddress);
+                                hashMap.put("CPlng", CPlng);
+                                hashMap.put("CPpostalCode", CPpostalCode);
+                                hashMap.put("CPstate", CPstate);
+                                hashMap.put("name", name);
+                                hashMap.put("title", title);
+                                hashMap.put("department", department);
+
+                                //======================crypto=======================
+                                hashMap.put("coin", coin);
+                                hashMap.put("wallet", wallet);
+                                hashMap.put("network", network);
                                 arrayList.add(hashMap);
 
 
@@ -269,15 +304,59 @@ public class MainActivity extends AppCompatActivity {
             String height = hashMap.get("height");
             String weight = hashMap.get("weight");
             String eyeColor = hashMap.get("eyeColor");
+            String domain = hashMap.get("domain");
+            String ip = hashMap.get("ip");
+            String macAddress = hashMap.get("macAddress");
+            String university = hashMap.get("university");
+            String ein = hashMap.get("eyeColor");
+            String ssn = hashMap.get("ssn");
+            String userAgent = hashMap.get("userAgent");
 
-
+            //HAIR===============
             String color = hashMap.get("color");
             String type = hashMap.get("type");
+
+            //======================address=======================
+            String address = hashMap.get("address");
+            String city = hashMap.get("city");
+
+            // coordinates=====================
+            String lat = hashMap.get("lat");
+            String lng = hashMap.get("lng");
+
+            String postalCode = hashMap.get("postalCode");
+            String state = hashMap.get("state");
+
+            //======================Bank=======================
+            String cardExpire = hashMap.get("cardExpire");
+            String cardNumber = hashMap.get("cardNumber");
+            String cardType = hashMap.get("cardType");
+            String currency = hashMap.get("currency");
+            String iban = hashMap.get("iban");
+
+            //======================company=======================
+            String CPaddress = hashMap.get("CPaddress");
+            String CPlat = hashMap.get("CPlat");
+            String CPlng = hashMap.get("CPlng");
+            String CPpostalCode = hashMap.get("CPpostalCode");
+            String CPstate = hashMap.get("CPstate");
+            String department = hashMap.get("department");
+            String name = hashMap.get("name");
+            String title = hashMap.get("title");
+
+            //======================crypto=======================
+            String coin = hashMap.get("coin");
+            String wallet = hashMap.get("wallet");
+            String network = hashMap.get("network");
+
+
+
 
 
             tvName.setText(firstName+" "+maidenName+" "+lastName);
             tvGender.setText("Gender: "+gender);
             tvAge.setText("Age: "+age);
+            tvAddress.setText("Address: "+address+","+city+","+state);
             Picasso.get().load(image).placeholder(R.drawable.itempic).into(tvImage);
 
 
@@ -328,6 +407,35 @@ public class MainActivity extends AppCompatActivity {
                     UserFullinfo.HAIRCOLOR= color;
                     UserFullinfo.HAIRTYPE= type;
 
+                    UserFullinfo.DOMAIN= domain;
+                    UserFullinfo.IP= ip;
+                    UserFullinfo.MACADDRESS= macAddress;
+                    UserFullinfo.UNIVERSITY= university;
+                    UserFullinfo.EIN= ein;
+                    UserFullinfo.SSN= ssn;
+                    UserFullinfo.USERAGENT= userAgent;
+                    UserFullinfo.ADDRESS= address;
+                    UserFullinfo.CITY= city;
+                    UserFullinfo.LAT= lat;
+                    UserFullinfo.LNG= lng;
+                    UserFullinfo.POSTALCODE= postalCode;
+                    UserFullinfo.STATE= state;
+
+                    UserFullinfo.CARDEXPIRE= cardExpire;
+                    UserFullinfo.CARDNUMBER= cardNumber;
+                    UserFullinfo.CARDTYPE= cardType;
+                    UserFullinfo.CURRENCY= currency;
+                    UserFullinfo.IBAN= iban;
+                    UserFullinfo.CPADDRESS= CPaddress;
+                    UserFullinfo.CPLNG= CPlng;
+                    UserFullinfo.CPPOSTALCODE= CPpostalCode;
+                    UserFullinfo.CPSTATE= CPstate;
+                    UserFullinfo.NAME= name;
+                    UserFullinfo.TITLE= title;
+                    UserFullinfo.DEPARTMENT= department;
+                    UserFullinfo.COIN= coin;
+                    UserFullinfo.WALLET= wallet;
+                    UserFullinfo.NETWORK= network;
 
 
 
@@ -345,6 +453,7 @@ public class MainActivity extends AppCompatActivity {
             return myview;
         }
     }
+
 
 
 }

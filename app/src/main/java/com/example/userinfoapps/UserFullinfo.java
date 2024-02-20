@@ -16,8 +16,20 @@ public class UserFullinfo extends AppCompatActivity {
 
     ImageView tvDimage;
 
-    TextView tvDname, tvDusername, tvDnumber, tvDemail, tvDage, tvDgender, tvDbirthday, tvDbloodgroup, tvDhight, tvDweight, tvDaddress;
-    public static String FIRSTNAME,MAIDENNAME,LASTNAME,AGE, GENDER, EMAIL, PHONE,USERNAME, PASSWORD,BIRTHDATE,IMAGE,BLOODGROUP,HEIGHT,WEIGHT,EYECOLOR, ADDRESS, HAIRCOLOR, HAIRTYPE  = "";
+    TextView tvDname, tvDusername, tvDnumber, tvDemail, tvDage, tvDgender, tvDbirthday, tvDbloodgroup, tvDhight, tvDweight, tvDaddress ;
+    public static String FIRSTNAME,MAIDENNAME,LASTNAME,AGE, GENDER, EMAIL, PHONE,USERNAME, PASSWORD,BIRTHDATE,IMAGE,BLOODGROUP,HEIGHT,WEIGHT = "";
+    public static String EYECOLOR, HAIRCOLOR, HAIRTYPE, DOMAIN, IP, MACADDRESS, UNIVERSITY,EIN, SSN, USERAGENT = " ";
+
+
+    // ADDRESS HERE=============================================
+    public static String ADDRESS, CITY, LAT, LNG, POSTALCODE, STATE;
+
+    //======================Bank=======================
+    public static String CARDEXPIRE, CARDNUMBER, CARDTYPE, CURRENCY, IBAN;
+    //======================company=======================
+    public static String CPADDRESS, CPLNG, CPPOSTALCODE, CPSTATE, NAME, TITLE, DEPARTMENT;
+    //======================crypto=======================
+    public static String COIN, WALLET, NETWORK;
 
 
     @Override
@@ -52,7 +64,7 @@ public class UserFullinfo extends AppCompatActivity {
         tvDbloodgroup.setText("Blood group: "+BLOODGROUP);
         tvDhight.setText("Height: "+HEIGHT);
         tvDweight.setText("Weight: "+WEIGHT);
-        tvDaddress.setText("Address: "+HAIRCOLOR);
+        tvDaddress.setText("Address: "+ADDRESS+", "+CITY+", coordinates: "+LAT+", "+LNG+", "+POSTALCODE+" "+STATE);
 
         Picasso.get().load(IMAGE).placeholder(R.drawable.itempic).into(tvDimage);
 
